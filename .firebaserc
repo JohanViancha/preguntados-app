@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "preguntados-app": {
+      "hosting": {
+        "preguntados-app": [
+          "preguntados-app"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "preguntados-app"
+  }
+}

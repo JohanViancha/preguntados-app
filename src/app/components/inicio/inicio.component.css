@@ -1,0 +1,36 @@
+.input-ingresar{
+    width: 195px;
+    text-align: center;
+    height: 3.125rem;
+    font-size: 1.25rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.btn-ingresar{
+    width: 192px;
+}
+
+.btn-ingresar:hover{
+    background-color: #bdc3c7;
+    color: #2c3e50;
+}
+
+.content-init{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+}
+
+.text{
+    color: #bdc3c7;
+    font-size: 1.2rem;
+}
+
+.link{
+    color: #bdc3c7;
+    font-weight: bold;
+}

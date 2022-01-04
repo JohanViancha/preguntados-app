@@ -1,0 +1,11 @@
+<div class="content-init">
+    <div class="alert alert-danger" *ngIf="error" role="alert">
+        Por favor ingrese el PIN
+      </div>
+    <input [(ngModel)]="pin" type="text" class="form-control input-ingresar" placeholder="PIN del juego ">
+    <button (click)="ingresar()" class="btn btn-dark btn-ingresar btn-principal">Ingresar</button>
+    <div class="fixed-bottom">
+        <p class="text-center text">Crear tu propio formulario gratis <a  routerLink="/usuario" class="link">aqui</a></p>
+    </div>
+</div>
+
