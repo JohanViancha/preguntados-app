@@ -1,0 +1,9 @@
+
+<div class="contenedor">
+    <div class="alert alert-danger" *ngIf="error" role="alert">
+        {{errorText}}
+      </div>
+    <input class="form-control input-aceptar mb-3" [(ngModel)]="nombre" type="text" placeholder="Ingrese su nombre">
+    <button class="btn-principal btn-ingresar" (click)="ingresarNombre()">Aceptar</button>
+    
+</div>

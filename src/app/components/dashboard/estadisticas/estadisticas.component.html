@@ -1,0 +1,60 @@
+<app-spinner *ngIf="loading"></app-spinner>
+<div *ngIf="!loading" class="container">
+
+    <div class="d-flex justify-content-center mt-3">
+        <div class="card card-titulo">
+            <div class="card-body">
+                <h2 class="titulo">LISTADO RESPUESTAS</h2>
+            </div>
+        </div>
+    </div>
+
+
+    <div *ngIf="listRespuestasUsuario.length > 0" class="row mt-3">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Participantes</th>
+                                <th>Fecha</th>
+                                <th>Puntos</th>
+                                <th style="width: 20%;">Acciones</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr *ngFor="let respuesta of listRespuestasUsuario">
+                                <td>{{respuesta.nombreParcipante}}</td>
+                                <td>{{respuesta.fecha.toDate() | date: 'dd/MM/yy'}}</td>
+                                <td>{{respuesta.puntosTotales}}</td>
+                                <td>
+                                    <i [routerLink]="['/dashboard/respuestaUsuarioAdmin',respuesta.id]" class="fas fa-search"></i>
+                                    <i (click)="eliminarRespuestaUsuario(respuesta.id)" class="fas fa-trash"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="listRespuestasUsuario.length === 0" class="row mt-3">
+
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body">
+                    <h5>No hay respuestas para mostrar</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <button [routerLink]="['/dashboard']" style="width: 100%;" class="btn-principal mt-3">VOLVER</button>
+        </div>
+    </div>
+</div>

@@ -10,6 +10,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule} from '@angular/fire/auth'
+import { AngularFirestoreModule} from '@angular/fire/firestore'
 import { DashboardModule } from './components/dashboard/dashboard.module';
 
 @NgModule({
@@ -24,6 +25,7 @@ import { DashboardModule } from './components/dashboard/dashboard.module';
     DashboardModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
+    AngularFirestoreModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule
   ],

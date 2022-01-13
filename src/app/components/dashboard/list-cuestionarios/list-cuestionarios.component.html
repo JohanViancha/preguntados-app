@@ -2,8 +2,8 @@
 <div class="d-flex justify-content-center mt-3">
     <button class="btn-principal btn-preguntados" routerLink="/dashboard/crearFormulario">NUEVO</button>
 </div>
-
-<div class="container">
+<app-spinner *ngIf="loading"></app-spinner>
+<div *ngIf="listCuestionario.length>0 && !loading" class="container">
     <div class="row mt-3">
         <div class="col-lg-8 offset-lg-2">
             <div class="card">
@@ -18,18 +18,28 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th>Mundial de futbol</th>
-                                <th>10</th>
-                                <th><span class="bg-dark text-light rounded px-2 py-1">MNG4J3</span></th>
-                                <th><i class="fas fa-search text-secundary"></i>
-                                    <i class="fas fa-chart-bar text-info"></i>
-                                    <i class="fas fa-trash-alt text-danger"></i>
+                            <tr *ngFor="let cuestionario of listCuestionario">
+                                <th>{{cuestionario.titulo}}</th>
+                                <th>{{cuestionario.cantPreguntas}}</th>
+                                <th><span class="bg-dark text-light rounded px-2 py-1">{{cuestionario.codigo}}</span></th>
+                                <th><i [routerLink]="[ '/dashboard/verCuestionario', cuestionario.id ]" class="fas fa-search text-secundary"></i>
+                                    <i [routerLink]="['/dashboard/estadisticas', cuestionario.id]" class="fas fa-chart-bar text-info"></i>
+                                    <i (click)="eliminarCuestionario(cuestionario.id!)" class="fas fa-trash-alt text-danger"></i>
                                 </th>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="listCuestionario.length == 0&& !loading"class="row mt-3">
+    <div class="col-lg-8 offset-lg-2">
+        <div class="card">
+            <div class="card-body">
+                <h5>No hay cuestionarios para mostrar</h5>
             </div>
         </div>
     </div>

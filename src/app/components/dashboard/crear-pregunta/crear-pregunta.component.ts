@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Pregunta } from 'src/app/models/Pregunta';
 import { Respuesta } from 'src/app/models/Respuesta';
 import { CuestionarioService } from 'src/app/services/cuestionario.service';
 
@@ -96,7 +97,44 @@ export class CrearPreguntaComponent implements OnInit {
     if(rtaTitulo4 !== ''){
       listRespuesta.push(respuesta4);
     }
-  
+    
+    const titulo:string = this.agregarPregunta.get('titulo')?.value;
+    const segundos:number = this.agregarPregunta.get('segundos')?.value;
+    const puntos:number = this.agregarPregunta.get('puntos')?.value;
+    
+    const preguntaP:Pregunta= {
+      titulo:titulo,
+      segundos:segundos,
+      puntos:puntos,
+      listRespuesta:listRespuesta
+    }
+    //const preguntaP =new Pregunta(titulo,segundos,puntos,listRespuesta);
+    this._serviceFormulario.agregarPregunta(preguntaP);
+    this.reset();
+  }
+
+  reset(){
+    this.agregarPregunta.patchValue({
+      titulo:'',
+      segundos:10,
+      puntos:1000,
+      respuesta1:{
+        titulo:'',
+        esCorrecta:false
+      },
+      respuesta2:{
+        titulo:'',
+        esCorrecta:false
+      },
+      respuesta3:{
+        titulo:'',
+        esCorrecta:false
+      },
+      respuesta4:{
+        titulo:'',
+        esCorrecta:false
+      }
+    })
   }
 
   todasIncorrecta(){

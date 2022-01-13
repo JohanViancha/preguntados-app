@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
@@ -9,6 +9,9 @@ import { ListCuestionariosComponent } from './list-cuestionarios/list-cuestionar
 import { CrearFormularioComponent } from './crear-formulario/crear-formulario.component';
 import { CrearPreguntaComponent } from './crear-pregunta/crear-pregunta.component';
 import { ListPreguntasComponent } from './list-preguntas/list-preguntas.component';
+import { SharedModule } from '../shared/shared.module';
+import { VerCuestionarioComponent } from './ver-cuestionario/ver-cuestionario.component';
+import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 
 
 
@@ -19,12 +22,15 @@ import { ListPreguntasComponent } from './list-preguntas/list-preguntas.componen
     ListCuestionariosComponent,
     CrearFormularioComponent,
     CrearPreguntaComponent,
-    ListPreguntasComponent
-  ],
+    ListPreguntasComponent,
+    VerCuestionarioComponent,
+    EstadisticasComponent
+    ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class DashboardModule { }

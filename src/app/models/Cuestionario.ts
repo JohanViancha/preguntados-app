@@ -1,9 +1,16 @@
 import { Pregunta } from "./Pregunta";
 
 export class Cuestionario{
-
-    constructor(private uid:string, private titulo:string, private descripcion:string, 
-        private codigo:string,private cantPreguntas:number, private fechaCreacion:Date, private listPregunta:Pregunta[] ){
+    id?:string;
+    uid:string;
+    titulo:string;
+    descripcion:string;
+    codigo:string;
+    cantPreguntas:number;
+    fechaCreacion:Date;
+    listPregunta:Pregunta[]
+    constructor(uid:string,titulo:string, descripcion:string, 
+         codigo:string, cantPreguntas:number,  fechaCreacion:Date, listPregunta:Pregunta[] ){
             this.uid = uid;
             this.titulo = titulo;
             this.descripcion = descripcion;
